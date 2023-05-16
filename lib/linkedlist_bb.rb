@@ -71,4 +71,11 @@ class LinkedList
         @string_arr.include?(string) 
     end
 
-    
+    def pop 
+        old_last = last_node(@head)
+        new_last = node_at_index(@head, node_count - 2)
+        new_last.delete_node
+        old_last.data
+        @string_arr.delete_at(-1)
+    end
+end 
