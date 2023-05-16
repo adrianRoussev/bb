@@ -27,4 +27,23 @@ node2= Node.new("dop")
 node = Node.new("plop", node2)
     expect(node.next_node).to eq(node2)
 end
+it 'can add next node' do
+    node = Node.new("plop")
+    expect(node.next_node).to eq(nil)
+    node2= Node.new("dop")
+   node.add_next_node(node2)
+
+    expect(node.next_node).to eq(node2)
+  end
+
+  it 'can delete next node' do
+    node = Node.new("plop")
+    expect(node.next_node).to eq(nil)
+    node2= Node.new("dop")
+   node.add_next_node(node2)
+    expect(node.next_node).to eq(node2)
+    node.delete_node 
+    expect(node.next_node).to eq(nil)
+  end
+
 end
