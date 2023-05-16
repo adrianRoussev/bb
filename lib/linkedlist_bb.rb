@@ -57,3 +57,12 @@ class LinkedList
         node_index_down.add_next_node(string)
         string.add_next_node(node_index_up)
     end
+
+    def find(index, number_returned)
+        @found = []
+        until @found.length == number_returned
+        @found << @string_arr.fetch(index)
+        index += 1
+        end
+        @found
+end
