@@ -65,4 +65,10 @@ class LinkedList
         index += 1
         end
         @found
-end
+    end
+
+    def includes?(string)
+        @string_arr.include?(string) 
+    end
+
+    
