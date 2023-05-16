@@ -25,3 +25,11 @@ class LinkedList
         @string_arr << string
         string
     end
+
+    def node_count
+        @string_arr.count
+    end
+
+    def to_string
+        @string_arr.join(' ')
+    end
