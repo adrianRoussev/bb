@@ -33,3 +33,9 @@ class LinkedList
     def to_string
         @string_arr.join(' ')
     end
+
+    def prepend(string)
+        new_node = Node.new(string, @head)
+        @head= new_node
+        @string_arr.prepend(string)
+    end
