@@ -1,4 +1,4 @@
-require '.lib/node_bb'
+require './node_bb'
 class LinkedList
     attr_reader :head
     def initialize
@@ -48,24 +48,39 @@ class LinkedList
         node_at_index(node.next_node, target_index, starting_index += 1)
         end
     end
+   
     
     def insert_after(index, string)
-        @string_arr.insert(index,string)
-        
-        string = Node.new(string)
-        node_index_down= node_at_index(@head, index - 1)
-        node_index_up = node_at_index(@head, index)
-        node_index_down.add_next_node(string)
-        string.add_next_node(node_index_up)
+        if index > @string_arr.count
+            nil
+        else
+            @string_arr.insert(index,string)
+            string = Node.new(string)
+            node_index_down= node_at_index(@head, index - 1)
+            node_index_up = node_at_index(@head, index)
+            node_index_down.add_next_node(string)
+            string.add_next_node(node_index_up)
+        end
     end
 
     def find(index, number_returned)
-        @found = []
-        until @found.length == number_returned
-        @found << @string_arr.fetch(index)
-        index += 1
+        if @string_arr.count < index 
+            nil
+    # elsif  @string_arr.count - index < number_returned
+    #   @found = []
+    #  until @found == @string_arr.last
+    #    @found << @string_arr.fetch(index)
+    #     index += 1
+    #     end
+        else
+            @found = []
+            until @found.length == number_returned 
+        
+            @found << @string_arr.fetch(index)
+            index += 1
+            end
         end
-        @found
+        @found.join(' ')
     end
 
     def includes?(string)
