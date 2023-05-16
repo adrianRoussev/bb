@@ -39,3 +39,21 @@ class LinkedList
         @head= new_node
         @string_arr.prepend(string)
     end
+
+    def node_at_index(node, target_index, starting_index=0)
+        if target_index == starting_index
+            node
+        else
+        node_at_index(node.next_node, target_index, starting_index += 1)
+        end
+    end
+    
+    def insert_after(index, string)
+        @string_arr.insert(index,string)
+        
+        string = Node.new(string)
+        node_index_down= node_at_index(@head, index - 1)
+        node_index_up = node_at_index(@head, index)
+        node_index_down.add_next_node(string)
+        string.add_next_node(node_index_up)
+    end
