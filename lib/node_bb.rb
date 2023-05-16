@@ -4,3 +4,8 @@ class Node
         @data = data
         @next_node = next_node
     end  
+    
+    def add_next_node(string)
+        @next_node = string
+    end
+end
