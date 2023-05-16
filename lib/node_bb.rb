@@ -8,4 +8,7 @@ class Node
     def add_next_node(string)
         @next_node = string
     end
+    def delete_node
+        @next_node = nil
+    end    
 end
