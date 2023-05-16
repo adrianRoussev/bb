@@ -48,7 +48,7 @@ class LinkedList
         node_at_index(node.next_node, target_index, starting_index += 1)
         end
     end
-   
+
     
     def insert_after(index, string)
         if index > @string_arr.count
